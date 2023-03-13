@@ -1,0 +1,11 @@
+namespace Win2dUwp
+{
+    [default_interface]
+    runtimeclass Bar : Windows.UI.Xaml.Controls.UserControl
+    {
+        Bar();
+        
+        Double Value{ get; set; };
+        static Windows.UI.Xaml.DependencyProperty ValueProperty{ get; };
+    }
+}

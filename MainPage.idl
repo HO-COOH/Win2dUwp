@@ -1,0 +1,37 @@
+namespace Win2dUwp
+{
+    [default_interface]
+    runtimeclass MainPage : Windows.UI.Xaml.Controls.Page, Windows.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        MainPage();
+
+        Int32 LayerIndex;
+        Int32 OriginIndex;
+
+        Double CenterX{ get; };
+        Double CenterY{ get; };
+
+        Int32 EasingIndex;
+        Windows.UI.Xaml.Media.Animation.EasingMode EasingMode{ get; };
+        Windows.UI.Xaml.Media.Animation.EasingFunctionBase EasingFunction{ get; };
+
+        Double FadeStart;
+        Double FadeEnd;
+
+        Double MoveStartX;
+        Double MoveEndX;
+        Double MoveStartY;
+        Double MoveEndY;
+
+        Double ScaleStart;
+        Double ScaleEnd;
+
+        Double RotateStart;
+        Double RotateEnd;
+
+        Windows.UI.Color ColorStart;
+        Windows.UI.Color ColorEnd;
+
+
+    }
+}

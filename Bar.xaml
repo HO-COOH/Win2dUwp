@@ -1,0 +1,19 @@
+﻿<UserControl
+    x:Class="Win2dUwp.Bar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Win2dUwp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <LinearGradientBrush x:Key="BackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#00ffffff" Offset="0"/>
+            <GradientStop Color="#4dffffff" Offset="1"/>
+        </LinearGradientBrush>
+    </UserControl.Resources>
+    <Grid>
+        <Rectangle x:Name="HostForVisual" Fill="{StaticResource BackgroundBrush}" Loaded="HostForVisual_Loaded"/>
+    </Grid>
+</UserControl>
