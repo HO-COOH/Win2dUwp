@@ -40,8 +40,14 @@
             <DoubleAnimation Duration="0:0:1"
                              From="{x:Bind ScaleStart, Mode=OneWay}"
                              To="{x:Bind ScaleEnd, Mode=OneWay}"
-                             Storyboard.TargetName="Sprite"
-                             Storyboard.TargetProperty="Scale"
+                             Storyboard.TargetName="Scale"
+                             Storyboard.TargetProperty="ScaleX"
+                             EasingFunction="{x:Bind EasingFunction, Mode=OneWay}"/>
+            <DoubleAnimation Duration="0:0:1"
+                             From="{x:Bind ScaleStart,Mode=OneWay}"
+                             To="{x:Bind ScaleEnd, Mode=OneWay}"
+                             Storyboard.TargetName="Scale"
+                             Storyboard.TargetProperty="ScaleY"
                              EasingFunction="{x:Bind EasingFunction, Mode=OneWay}"/>
         </Storyboard>
 
@@ -51,7 +57,7 @@
                              To="{x:Bind RotateEnd, Mode=OneWay}"
                              Storyboard.TargetName="Rotate"
                              Storyboard.TargetProperty="Angle"
-                             EasingFunction="{x:Bind EasingFunction, Mode=OneWay}"/>
+                             EasingFunction="{x:Bind EasingFunction, Mode=OneWay}" EnableDependentAnimation="True"/>
         </Storyboard>
     </Page.Resources>
     
@@ -142,16 +148,16 @@
 
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="ScaleButton" Click="ScaleButton_Click">Scale</Button>
-                <muxc:NumberBox Header="Start"/>
+                <muxc:NumberBox Header="Start" Value="{x:Bind ScaleStart, Mode=TwoWay}"/>
                 <TextBlock Text="->" VerticalAlignment="Center"/>
-                <muxc:NumberBox Header="End"/>
+                <muxc:NumberBox Header="End" Value="{x:Bind ScaleEnd, Mode=TwoWay}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="RotateButton" Click="RotateButton_Click">Rotate</Button>
-                <muxc:NumberBox Header="Start"/>
+                <muxc:NumberBox Header="Start" Value="{x:Bind RotateStart, Mode=TwoWay}"/>
                 <TextBlock Text="->" VerticalAlignment="Center"/>
-                <muxc:NumberBox Header="End"/>
+                <muxc:NumberBox Header="End" Value="{x:Bind RotateEnd, Mode=TwoWay}"/>
             </StackPanel>
 
             <StackPanel Orientation="Vertical">
@@ -173,7 +179,7 @@
                     <TransformGroup>
                         <TranslateTransform x:Name="Translate"/>
                         <ScaleTransform x:Name="Scale" CenterX="{x:Bind CenterX, Mode=OneWay}" CenterY="{x:Bind CenterY, Mode=OneWay}"/>
-                        <RotateTransform x:Name="Rotate" CenterX="{x:Bind CenterX, Mode=OneWay}" CenterY="{x:Bind CenterY, Mode=OneWay}"/>
+                        <RotateTransform x:Name="Rotate" CenterX="{x:Bind CenterX, Mode=OneWay}" CenterY="{x:Bind CenterY, Mode=OneWay}" Angle="20"/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>

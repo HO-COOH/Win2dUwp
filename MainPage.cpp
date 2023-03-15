@@ -29,13 +29,18 @@ namespace winrt::Win2dUwp::implementation
 
 	void MainPage::ScaleButton_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e)
 	{
+		ScaleAnimation().Begin();
+	}
 
+	void MainPage::RotateButton_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e)
+	{
+		RotateAnimation().Begin();
 	}
 
 
 	void MainPage::ColorButton_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e)
 	{
-
+		
 	}
 
 }
@@ -89,7 +94,3 @@ void winrt::Win2dUwp::implementation::MainPage::CanvasControl_Draw(winrt::Micros
 
 
 
-void winrt::Win2dUwp::implementation::MainPage::RotateButton_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e)
-{
-
-}

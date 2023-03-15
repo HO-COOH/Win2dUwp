@@ -326,38 +326,42 @@ namespace winrt::Win2dUwp::implementation
             switch (m_originIndex)
             {
                 case 0: break;
-                case 1: offset = 
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
+                case 1: offset = spriteSize / 2; break;
+                case 2: break;
+                case 3: offset = spriteSize; break;
+                case 4: offset = spriteSize / 2; break;
+                case 5: offset = spriteSize / 2; break;
+                case 6: break;
+                case 7: offset = spriteSize; break;
+                case 8: break;
+                case 9: offset = spriteSize; break;
                 default:
                     throw std::runtime_error{"Unknown origin"};
             }
+            return currentTopLeft + offset;
         }
 
         double CenterY()
         {
             auto spriteSize = Sprite().Width();
+            auto const currentTopLeft = Sprite().TransformToVisual(Canvas()).TransformPoint({ 0,0 }).Y;
+            double offset{};
             switch (m_originIndex)
             {
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
+                case 0: break;
+                case 1: offset = spriteSize / 2; break;
+                case 2: offset = spriteSize / 2; break;
+                case 3: break;
+                case 4: offset = spriteSize; break;
+                case 5: break;
+                case 6: break;
+                case 7: offset = spriteSize / 2; break;
+                case 8: offset = spriteSize; break;
+                case 9: offset = spriteSize; break;
                 default:
                     throw std::runtime_error{ "Unknown origin" };
             }
+            return currentTopLeft + offset;
         }
     private:
         winrt::Windows::UI::Xaml::Media::Animation::EasingMode m_easingMode;
@@ -366,19 +370,19 @@ namespace winrt::Win2dUwp::implementation
         int m_originIndex{};
         int m_easingIndex{ };
         
-        double m_fadeStart{};
-        double m_fadeEnd{};
+        double m_fadeStart = 1.0;
+        double m_fadeEnd = 0.5;
 
         double m_moveStartX = 100.0;
         double m_moveEndX = 200.0;
         double m_moveStartY = 300.0;
         double m_moveEndY = 400.0;
 
-        double m_scaleStart{};
-        double m_scaleEnd{};
+        double m_scaleStart = 1.0;
+        double m_scaleEnd = 2.0;
 
-        double m_rotateStart{};
-        double m_rotateEnd = 3.14;
+        double m_rotateStart = 3.14 / 2;
+        double m_rotateEnd = 3.14 * 2;
 
         winrt::Windows::UI::Color m_colorStart{};
         winrt::Windows::UI::Color m_colorEnd{};
